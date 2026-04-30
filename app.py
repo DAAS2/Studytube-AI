@@ -8,6 +8,7 @@ import streamlit_authenticator as stauth
 from yaml.loader import SafeLoader
 from dotenv import load_dotenv
 from youtube_transcript_api import YouTubeTranscriptApi
+from youtube_transcript_api.proxies import WebshareProxyConfig
 from pytubefix import YouTube
 
 from langchain_core.documents import Document
@@ -309,7 +310,19 @@ def process_and_save_video(username: str, url: str) -> dict | None:
         thumbnail = f"https://img.youtube.com/vi/{video_id}/hqdefault.jpg"; duration = 0
 
     try:
-        ytt_api = YouTubeTranscriptApi()
+        # Check if we have proxy credentials configured
+        proxy_user = os.getenv("WEBSHARE_USER")
+        proxy_pass = os.getenv("WEBSHARE_PASS")
+        
+        if proxy_user and proxy_pass:
+            proxy_config = WebshareProxyConfig(
+                proxy_username=proxy_user, 
+                proxy_password=proxy_pass
+            )
+            ytt_api = YouTubeTranscriptApi(proxy_config=proxy_config)
+        else:
+            ytt_api = YouTubeTranscriptApi()
+            
         fetched = ytt_api.fetch(video_id)
         transcript_text = " ".join([s.text for s in fetched])
     except Exception as e:
