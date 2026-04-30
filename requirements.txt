@@ -1,0 +1,14 @@
+streamlit>=1.35.0
+streamlit-authenticator>=0.3.3
+python-dotenv>=1.0.0
+youtube-transcript-api>=0.6.2
+pytubefix>=6.0.0
+langchain-core>=0.2.0
+langchain-text-splitters>=0.2.0
+langchain-huggingface>=0.0.3
+langchain-community>=0.2.0
+langchain-groq>=0.1.6
+faiss-cpu>=1.8.0
+sentence-transformers>=3.0.0
+bcrypt>=4.0.0
+pyyaml>=6.0.1
