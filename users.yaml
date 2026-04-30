@@ -10,9 +10,9 @@ credentials:
       logged_in: false
       name: Admin
       password: $2b$12$Tnbls3WTD02.cKcSOUsP/.DRw1MGavw9GDW.Qd5GCMqACtRVRLcpq
-    saad:
-      email: daasrmalik@gmail.com
+    test:
+      email: test@gmail.com
       failed_login_attempts: 0
       logged_in: false
-      name: Saad M
+      name: Test
       password: $2b$12$7nOcdvE5cK9wxyryH4Y0DOHRI.bkTRsebkFC0Jy86H.dCFzXvP1j6
